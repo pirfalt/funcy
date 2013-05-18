@@ -4,8 +4,6 @@
 // Every step in the chain can only take 1 arg since only 1 can be returned
 // from the previous func call. For consistency (and speed) the first also takes 1 arg.
 
-var __slice = Array.prototype.slice;
-
 module.exports = compose;
 
 function compose(/* ...funcs */) {
