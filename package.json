@@ -1,0 +1,16 @@
+{
+  "name": "funcy",
+  "version": "0.0.0",
+  "description": "Functional programming tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "keywords": [
+    "functional",
+    "util"
+  ],
+  "author": "Emil Pirfalt",
+  "license": "MIT"
+}
