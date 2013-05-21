@@ -3,16 +3,17 @@
 
 // Every step in the chain can only take 1 arg since only 1 can be returned
 // from the previous func call. For consistency (and speed) the first also takes 1 arg.
+var slice = require('sliced');
 
 module.exports = compose;
 
-function compose(/* ...funcs */) {
-  var funs = arguments
-  return function(arg) {
-    var i = funs.length - 1
-    for (; i > 0; i--) {
-      arg = funs[i](arg)
+function compose() {
+  var funcs = arguments;
+  return function() {
+    var args = slice(arguments);
+    for (var i = funcs.length - 1; i >= 0; i--) {
+      args = [funcs[i].apply(this, args)];
     }
-    return arg
-  }
+    return args[0];
+  };
 }
